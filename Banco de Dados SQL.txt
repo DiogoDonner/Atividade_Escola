@@ -15,4 +15,3 @@ materia text not null);
 
 select * from professores;
 
-drop table professores;
