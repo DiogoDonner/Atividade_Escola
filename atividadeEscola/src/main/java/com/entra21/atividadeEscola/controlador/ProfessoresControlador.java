@@ -34,7 +34,7 @@ public class ProfessoresControlador {
     @GetMapping("/{idProfessor}/alunos")
     public List<Alunos> listarAlunoDeProfessor(@PathVariable Integer idProfessor){
         Professores professores = this.professoresRepositorio.findById(idProfessor).orElseThrow();
-        return professores.getAlunos();
+        return null;
     }
 
     @PostMapping

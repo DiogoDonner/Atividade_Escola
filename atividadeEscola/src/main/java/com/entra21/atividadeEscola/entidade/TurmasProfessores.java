@@ -2,17 +2,18 @@ package com.entra21.atividadeEscola.entidade;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
-public class Alunos {
-    @Id
+public class TurmasProfessores {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Integer id;
-    private String nome;
     private LocalDateTime registro;
-    private Integer matricula;
+    @ManyToOne
+    @JoinColumn(name = "professores")
+    private Professores professores;
 
     @ManyToOne
     @JoinColumn(name = "turmas")
@@ -26,28 +27,21 @@ public class Alunos {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public LocalDateTime getRegistro() {
         return registro;
     }
 
-    public void setRegistro(LocalDate registro) {
-        this.registro = LocalDateTime.from(registro);
+
+    public void setRegistro(LocalDateTime registro) {
+        this.registro = registro;
     }
 
-    public Integer getMatricula() {
-        return matricula;
+    public Professores getProfessores() {
+        return professores;
     }
 
-    public void setMatricula(Integer matricula) {
-        this.matricula = matricula;
+    public void setProfessores(Professores professores) {
+        this.professores = professores;
     }
 
     public Turmas getTurmas() {

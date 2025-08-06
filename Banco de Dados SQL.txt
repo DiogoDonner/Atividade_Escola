@@ -3,7 +3,7 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 nome text not null,
 registro date not null,
 matricula int not null,
-professores integer references professores(id));
+turmas integer references turmas(id));
 
 select * from alunos;
 
@@ -13,5 +13,22 @@ nome text not null,
 registro date not null,
 materia text not null);
 
-select * from professores;
+
+Create Table turmas (
+id INT AUTO_INCREMENT PRIMARY KEY,
+identificador text not null,
+registro date not null
+);
+
+Create Table turmas_professores (
+id INT AUTO_INCREMENT PRIMARY KEY,
+registro datetime,
+turmas integer references turmas(id),
+professores integer references professores(id)
+);
+
+select * from turmas_professores;
+
+
+select * from turmas;
 

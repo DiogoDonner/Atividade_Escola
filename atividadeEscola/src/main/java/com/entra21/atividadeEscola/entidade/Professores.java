@@ -1,6 +1,5 @@
 package com.entra21.atividadeEscola.entidade;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -14,9 +13,8 @@ public class Professores {
     private String nome;
     private LocalDate registro;
     private String materia;
-    @JsonIgnore
-    @OneToMany (mappedBy = "professores", cascade = CascadeType.ALL)
-    private List<Alunos> alunos;
+    @OneToMany(mappedBy = "professores", cascade = CascadeType.ALL)
+    private List<TurmasProfessores> turmasProfessores;
 
     public String getNome() {
         return nome;
@@ -42,11 +40,19 @@ public class Professores {
         this.materia = materia;
     }
 
-    public List<Alunos> getAlunos() {
-        return alunos;
+    public List<TurmasProfessores> getTurmasProfessores() {
+        return turmasProfessores;
     }
 
-    public void setAlunos(Alunos alunos) {
-        this.alunos = (List<Alunos>) alunos;
+    public void setTurmasProfessores(List<TurmasProfessores> turmasProfessores) {
+        this.turmasProfessores = turmasProfessores;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

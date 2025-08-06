@@ -33,11 +33,7 @@ public class AlunosControlador {
 
     @PostMapping("/novo/{idProfessor}")
     public Alunos adicionarAluno(@RequestBody Alunos alunos, @PathVariable Integer idProfessor){
-        Professores prof = this.professoresRepositorio.findById(idProfessor).orElseThrow();
-        alunos.setProfessores(prof);
-        alunos.setRegistro(LocalDate.now());
-
-        return this.alunosRepositorio.save(alunos);
+        return null;
     }
 
     @DeleteMapping("/delete/{idUsuario}")

@@ -21,21 +21,21 @@
       "items": [
         {
           "type": "http",
-          "name": "Listar Alunos",
-          "filename": "Listar Alunos.bru",
-          "seq": 1,
+          "name": "Adicionar Aluno",
+          "filename": "Adicionar Aluno.bru",
+          "seq": 3,
           "settings": {
             "encodeUrl": true
           },
           "tags": [],
           "request": {
-            "url": "http://localhost:8080/alunos",
-            "method": "GET",
+            "url": "http://localhost:8080/alunos/novo/1",
+            "method": "POST",
             "headers": [],
             "params": [],
             "body": {
               "mode": "json",
-              "json": "",
+              "json": "{\n  \"nome\": \"Teste\",\n  \"matricula\": 999\n}",
               "formUrlEncoded": [],
               "multipartForm": [],
               "file": []
@@ -82,21 +82,20 @@
         },
         {
           "type": "http",
-          "name": "Adicionar Aluno",
-          "filename": "Adicionar Aluno.bru",
-          "seq": 3,
+          "name": "Deletar Aluno",
+          "filename": "Deletar Aluno.bru",
+          "seq": 4,
           "settings": {
             "encodeUrl": true
           },
           "tags": [],
           "request": {
-            "url": "http://localhost:8080/alunos/novo/1",
-            "method": "POST",
+            "url": "http://localhost:8080/alunos/delete/1",
+            "method": "DELETE",
             "headers": [],
             "params": [],
             "body": {
-              "mode": "json",
-              "json": "{\n  \"nome\": \"Teste\",\n  \"matricula\": 999\n}",
+              "mode": "none",
               "formUrlEncoded": [],
               "multipartForm": [],
               "file": []
@@ -113,20 +112,21 @@
         },
         {
           "type": "http",
-          "name": "Deletar Aluno",
-          "filename": "Deletar Aluno.bru",
-          "seq": 4,
+          "name": "Listar Alunos",
+          "filename": "Listar Alunos.bru",
+          "seq": 1,
           "settings": {
             "encodeUrl": true
           },
           "tags": [],
           "request": {
-            "url": "http://localhost:8080/alunos/delete/1",
-            "method": "DELETE",
+            "url": "http://localhost:8080/alunos",
+            "method": "GET",
             "headers": [],
             "params": [],
             "body": {
-              "mode": "none",
+              "mode": "json",
+              "json": "",
               "formUrlEncoded": [],
               "multipartForm": [],
               "file": []
@@ -162,15 +162,46 @@
       "items": [
         {
           "type": "http",
-          "name": "Listar Professores",
-          "filename": "Listar Professores.bru",
-          "seq": 5,
+          "name": "Adicionar Professor",
+          "filename": "Adicionar Professor.bru",
+          "seq": 4,
           "settings": {
             "encodeUrl": true
           },
           "tags": [],
           "request": {
             "url": "http://localhost:8080/professores",
+            "method": "POST",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Buscar Alunos de Professor",
+          "filename": "Buscar Alunos de Professor.bru",
+          "seq": 3,
+          "settings": {
+            "encodeUrl": true
+          },
+          "tags": [],
+          "request": {
+            "url": "http://localhost:8080/professores/1/alunos",
             "method": "GET",
             "headers": [],
             "params": [],
@@ -224,15 +255,65 @@
         },
         {
           "type": "http",
-          "name": "Buscar Alunos de Professor",
-          "filename": "Buscar Alunos de Professor.bru",
-          "seq": 3,
+          "name": "Listar Professores",
+          "filename": "Listar Professores.bru",
+          "seq": 5,
           "settings": {
             "encodeUrl": true
           },
           "tags": [],
           "request": {
-            "url": "http://localhost:8080/professores/1/alunos",
+            "url": "http://localhost:8080/professores",
+            "method": "GET",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Turmas",
+      "filename": "Turmas",
+      "seq": 3,
+      "root": {
+        "request": {
+          "auth": {
+            "mode": "inherit"
+          }
+        },
+        "meta": {
+          "name": "Turmas",
+          "seq": 3
+        }
+      },
+      "items": [
+        {
+          "type": "http",
+          "name": "Listar Turmas",
+          "filename": "Listar Turmas.bru",
+          "seq": 1,
+          "settings": {
+            "encodeUrl": true
+          },
+          "tags": [],
+          "request": {
+            "url": "http://localhost:8080/turmas",
             "method": "GET",
             "headers": [],
             "params": [],
@@ -255,21 +336,52 @@
         },
         {
           "type": "http",
-          "name": "Adicionar Professor",
-          "filename": "Adicionar Professor.bru",
-          "seq": 4,
+          "name": "Buscar Turma",
+          "filename": "Buscar Turma.bru",
+          "seq": 2,
           "settings": {
             "encodeUrl": true
           },
           "tags": [],
           "request": {
-            "url": "http://localhost:8080/professores",
-            "method": "POST",
+            "url": "http://localhost:8080/turmas/1",
+            "method": "GET",
             "headers": [],
             "params": [],
             "body": {
               "mode": "json",
               "json": "",
+              "formUrlEncoded": [],
+              "multipartForm": [],
+              "file": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "docs": "",
+            "auth": {
+              "mode": "inherit"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Postar Turma",
+          "filename": "Postar Turma.bru",
+          "seq": 3,
+          "settings": {
+            "encodeUrl": true
+          },
+          "tags": [],
+          "request": {
+            "url": "http://localhost:8080/turmas",
+            "method": "POST",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"identificador\": \"Turma123\",\n  \"alunos\": [],\n  \"professores\": []\n}",
               "formUrlEncoded": [],
               "multipartForm": [],
               "file": []
@@ -296,7 +408,7 @@
       "node_modules",
       ".git"
     ],
-    "size": 0,
-    "filesCount": 0
+    "size": 0.0014677047729492188,
+    "filesCount": 10
   }
 }
