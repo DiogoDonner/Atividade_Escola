@@ -38,7 +38,7 @@ public class Alunos {
         return registro;
     }
 
-    public void setRegistro(LocalDate registro) {
+    public void setRegistro(LocalDateTime registro) {
         this.registro = LocalDateTime.from(registro);
     }
 

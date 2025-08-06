@@ -3,6 +3,7 @@ package com.entra21.atividadeEscola.entidade;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -11,7 +12,7 @@ public class Professores {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private LocalDate registro;
+    private LocalDateTime registro;
     private String materia;
     @OneToMany(mappedBy = "professores", cascade = CascadeType.ALL)
     private List<TurmasProfessores> turmasProfessores;
@@ -24,11 +25,11 @@ public class Professores {
         this.nome = nome;
     }
 
-    public LocalDate getRegistro() {
+    public LocalDateTime getRegistro() {
         return registro;
     }
 
-    public void setRegistro(LocalDate registro) {
+    public void setRegistro(LocalDateTime registro) {
         this.registro = registro;
     }
 

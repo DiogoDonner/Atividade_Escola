@@ -1,5 +1,6 @@
 package com.entra21.atividadeEscola.controlador;
 
+import com.entra21.atividadeEscola.dtos.ProfessoresDTO.ProfessoresRequestDTO;
 import com.entra21.atividadeEscola.entidade.Alunos;
 import com.entra21.atividadeEscola.entidade.Professores;
 import com.entra21.atividadeEscola.repositorio.AlunosRepositorio;
@@ -7,6 +8,7 @@ import com.entra21.atividadeEscola.repositorio.ProfessoresRepositorio;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -38,9 +40,13 @@ public class ProfessoresControlador {
     }
 
     @PostMapping
-    public Professores adicionarProfessor (@RequestBody Professores professores){
-        professores.setRegistro(LocalDate.now());
-        return this.professoresRepositorio.save(professores);
+    public ProfessoresRequestDTO adicionarProfessor (@RequestBody ProfessoresRequestDTO dto){
+        Professores professores = new Professores();
+        professores.setRegistro(LocalDateTime.now());
+        professores.setNome(dto.getNome());
+        professores.setMateria(dto.getMateria());
+        professoresRepositorio.save(professores);
+        return dto;
     }
 
     @DeleteMapping("/{idProfessor}")
